@@ -5,7 +5,24 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <Title>JWT Retriever</Title>
+    <Version>0.0.1</Version>
+    <Authors>Alessandro Morvillo</Authors>
+    <Company>AMDev.IT</Company>
+    <Description>JWT retriever tool. Retrieves JWT token from MSAL applications.
+</Description>
+    <Copyright>AMDEV.IT 2023</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/AMDevIT/JWTRetriever</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AMDevIT/JWTRetriever</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Identity.Client" Version="4.57.0" />
