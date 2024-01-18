@@ -74,13 +74,17 @@
 
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Scopes" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBox Grid.Row="5" Grid.Column="1" MaxLines="1"  Margin="5" 
-                      Text="{Binding Scopes, UpdateSourceTrigger=PropertyChanged}"/>
+                      Text="{Binding GroupedScopes, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="Client secret" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBox Grid.Row="6" Grid.Column="1" MaxLines="1"  Margin="5" 
                       Text="{Binding ClientSecret, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Redirect URI" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="7" Grid.Column="1" MaxLines="1"  Margin="5" 
+                      Text="{Binding RedirectUri, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="2" HorizontalAlignment="Right">
                     <Button Content="Login interattivo" Margin="10" Width="120" Command="{Binding AuthenticateInteractiveCommand}"/>
                     <Button Content="Login AppToApp" Margin="10" Width="120" Command="{Binding AuthenticateApplicationCommand}"/>
                 </StackPanel>
