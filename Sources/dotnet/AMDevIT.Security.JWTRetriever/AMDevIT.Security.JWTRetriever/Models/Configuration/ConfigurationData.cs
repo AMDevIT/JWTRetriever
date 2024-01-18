@@ -46,6 +46,12 @@
             set;
         }
 
+        public string? RedirectURI
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region .ctor
@@ -61,7 +67,9 @@
                                  string? clientSecret,
                                  string? apiUrl,
                                  string? domain,
+                                 string? redirectUri,
                                  string[]? scopes)
+                                 
         {
             this.ClientID = clientID;
             this.TenantID = tenantID;
@@ -70,6 +78,7 @@
             this.APIUrl = apiUrl;
             this.Scopes = scopes;
             this.Domain = domain;
+            this.RedirectURI = redirectUri; 
         }
 
         #endregion

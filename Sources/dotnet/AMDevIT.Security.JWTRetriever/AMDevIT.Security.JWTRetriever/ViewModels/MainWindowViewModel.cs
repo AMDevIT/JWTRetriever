@@ -20,8 +20,9 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
         private string? authority;
         private string? clientSecret;
         private string? apiUrl;
-        private string? scopesGrouped;
+        private string? groupedScopes;
         private string? domain;
+        private string? redirectURI = null;
 
         private string? jwtToken;
 
@@ -113,11 +114,11 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
         {
             get
             {
-                return this.scopesGrouped;
+                return this.groupedScopes;
             }
             set
             {
-                if (this.SetProperty(ref this.scopesGrouped, value))
+                if (this.SetProperty(ref this.groupedScopes, value))
                 {
                     this.AuthenticateApplicationCommand.CanExecute(null);
                     this.AuthenticateInteractiveCommand.CanExecute(null);
@@ -150,6 +151,18 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
             set
             {
                 this.SetProperty(ref this.jwtToken, value);
+            }
+        }
+
+        public string? RedirectUri
+        {
+            get
+            {
+                return this.redirectURI;   
+            }
+            set
+            {
+                this.SetProperty(ref this.redirectURI, value);
             }
         }
 
@@ -262,7 +275,7 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
             oAuthClient = new GenericOAuthClient(this.ClientID!,
                                                  this.TenantID!,
                                                  this.APIUrl,
-                                                 null);
+                                                 this.RedirectUri);
 
             if (scopes.Length == 0)
             {
@@ -309,7 +322,7 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
             oAuthClient = new GenericOAuthClient(this.ClientID!,
                                                  this.TenantID!,
                                                  this.APIUrl,
-                                                 null);
+                                                 this.RedirectUri);
             jwtAuthTask = oAuthClient.AuthenticateInteractive(scopes,
                                                               this.Authority);
             jwtAuthTask.ContinueWith((taskResult) =>
@@ -363,6 +376,8 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
                         this.ClientSecret = configurationData.ClientSecret;
                         this.APIUrl = configurationData.APIUrl;
                         this.Domain = configurationData.Domain;
+                        this.RedirectUri = configurationData.RedirectURI;
+
                         if (configurationData.Scopes != null)
                             this.GroupedScopes = this.GroupScopes(configurationData.Scopes);
                         else
@@ -398,6 +413,7 @@ namespace AMDevIT.Security.JWTRetriever.ViewModels
                                                           this.ClientSecret,
                                                           this.APIUrl,
                                                           this.Domain,
+                                                          this.RedirectUri,
                                                           scopes);
 
                 configurationJson = JsonSerializer.Serialize<ConfigurationData>(configurationData);
