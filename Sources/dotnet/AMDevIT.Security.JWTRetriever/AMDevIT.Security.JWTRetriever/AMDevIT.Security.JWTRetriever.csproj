@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Title>JWT Retriever</Title>
-    <Version>0.0.1</Version>
+    <Version>0.0.10</Version>
     <Authors>Alessandro Morvillo</Authors>
     <Company>AMDev.IT</Company>
     <Description>JWT retriever tool. Retrieves JWT token from MSAL applications.
@@ -15,6 +15,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/AMDevIT/JWTRetriever</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AMDevIT/JWTRetriever</RepositoryUrl>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.57.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.59.0" />
   </ItemGroup>
 
 </Project>
