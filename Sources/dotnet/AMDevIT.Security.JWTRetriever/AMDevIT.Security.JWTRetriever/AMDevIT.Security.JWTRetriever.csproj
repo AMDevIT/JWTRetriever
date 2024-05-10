@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Title>JWT Retriever</Title>
-    <Version>0.0.10</Version>
+    <Version>0.0.12</Version>
     <Authors>Alessandro Morvillo</Authors>
     <Company>AMDev.IT</Company>
     <Description>JWT retriever tool. Retrieves JWT token from MSAL applications.
@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.59.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.61.0" />
   </ItemGroup>
 
 </Project>
